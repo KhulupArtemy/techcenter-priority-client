@@ -4,30 +4,30 @@ import {observer} from "mobx-react-lite";
 import {Pagination} from "react-bootstrap";
 
 const Pages = observer(() => {
-    const {tractor} = useContext(Context)
+    const {catalog} = useContext(Context)
 
     useEffect(() => {
-        if (tractor.selectedModel.id) {
-            tractor.setTotalCount(tractor.tractors.filter(item => item.modelId === tractor.selectedModel.id).length)
+        if (catalog.selectedCategory.id) {
+            catalog.setTotalCount(catalog.goods.filter(item => item.categoryId === catalog.selectedCategory.id).length)
         } else {
-            tractor.setTotalCount(tractor.tractors.length)
+            catalog.setTotalCount(catalog.goods.length)
         }
 
-        tractor.setPageCount(Math.ceil(tractor.totalCount / tractor.limit))
+        catalog.setPageCount(Math.ceil(catalog.totalCount / catalog.limit))
         const pages = []
-        for (let i = 0; i < tractor.pageCount; i++) {
+        for (let i = 0; i < catalog.pageCount; i++) {
             pages.push(i + 1)
         }
-        tractor.setPages(pages)
-    }, [tractor, tractor.selectedModel])
+        catalog.setPages(pages)
+    }, [catalog, catalog.selectedCategory])
 
     return (
         <Pagination className="mt-3">
-            {tractor.pages.map(page =>
+            {catalog.pages.map(page =>
                 <Pagination.Item
                     key={page}
-                    active={tractor.page === page}
-                    onClick={() => tractor.setPage(page)}
+                    active={catalog.page === page}
+                    onClick={() => catalog.setPage(page)}
                 >
                     {page}
                 </Pagination.Item>

@@ -1,15 +1,15 @@
 import React, {createContext} from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import TractorStore from "./store/TractorStore";
+import CatalogStore from "./store/CatalogStore";
 
 export const Context = createContext(null)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Context.Provider value={{
-      tractor: new TractorStore(),
+      catalog: new CatalogStore(),
   }}>
-    <App />
+    <App/>
   </Context.Provider>
 );
