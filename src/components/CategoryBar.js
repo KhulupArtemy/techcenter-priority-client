@@ -8,6 +8,7 @@ const CategoryBar = observer(() => {
 
     return (
         <ListGroup variant="flush">
+            <div style={{boxShadow: "0 0 10px rgba(0,0,0,0.5)"}}>
             {catalog.categories.map(category =>
                 <ListGroup.Item
                     style={{cursor: "pointer", fontSize: 15.5}}
@@ -23,6 +24,7 @@ const CategoryBar = observer(() => {
                     <b>{category.name}</b>
                 </ListGroup.Item>
             )}
+            </div>
             <Button
                 className="mt-3"
                 variant="outline-primary"

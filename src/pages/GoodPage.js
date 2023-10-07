@@ -68,7 +68,7 @@ const GoodPage = () => {
                         </tr>
                         </thead>
                         <tbody>
-                        {selectedItem.specifications?.map(specification =>
+                        {selectedItem?.specifications?.map(specification =>
                             <tr key={specification.id}>
                                 <td>{specification.name}</td>
                                 <td>{specification.value}</td>

@@ -90,10 +90,10 @@ const Contacts = () => {
                         href="mailto:info@tc-prioritet.ru"
                     >
                         <img
-                            width="32"
-                            height="32"
-                            src="https://img.icons8.com/color/32/gmail-new.png"
-                            alt="gmail-new"
+                            width="36"
+                            height="36"
+                            src="https://img.icons8.com/emoji/36/e-mail.png"
+                            alt="e-mail"
                         />
                     </a>
                 </Col>

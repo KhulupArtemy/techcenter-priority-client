@@ -6,7 +6,7 @@ const GoodsItem = ({good}) => {
 
     return (
         <Col xs={9} sm={5} md={5} lg={4} xl={3} xxl={3}>
-            <Card className="h-100">
+            <Card className="h-100" style={{boxShadow: "0 0 10px rgba(0,0,0,0.5)"}}>
                 <Card.Img
                     variant="top"
                     className="img-fluid mx-auto"

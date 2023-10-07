@@ -7,28 +7,24 @@ const CreateRequest = ({show, onHide, good, model}) => {
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
     const [comment, setComment] = useState('')
-    const [validated, setValidated] = useState(false);
+    const [validated, setValidated] = useState(false)
 
-    const handleSubmit = (event) => {
-        const form = event.currentTarget;
+    const handleSubmit = async (event) => {
+        const form = event.currentTarget
         if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-        }
-        setValidated(true);
-    };
-
-    const sendMessage = async () => {
-        try {
-            await sendEmail({initials, email, phone, good, model, comment}).then(data => alert(data))
+            event.preventDefault()
+            setValidated(true)
+        } else {
+            event.preventDefault()
             setInitials('')
             setEmail('')
             setPhone('')
             setComment('')
-        } catch (e) {
-            alert(e.response.data.message)
+            setValidated(false)
+            onHide()
+            await sendEmail({initials, email, phone, good, model, comment})
         }
-    }
+    };
 
     return (
         <Modal
@@ -44,18 +40,21 @@ const CreateRequest = ({show, onHide, good, model}) => {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                        <Form.Label>Введите ФИО<b style={{color: "red"}}>*</b></Form.Label>
+                    <Form.Group controlId="validationCustom01">
+                        <Form.Label>Введите имя<b style={{color: "red"}}>*</b></Form.Label>
                         <Form.Control
                             required
                             type="text"
                             value={initials}
                             onChange={e => setInitials(e.target.value)}
-                            placeholder="Поле для ввода ФИО"
+                            placeholder="Поле для ввода имени"
                         />
                         <Form.Control.Feedback type="invalid">
                             Введите ФИО
                         </Form.Control.Feedback>
-                        <Form.Label className="mt-3">Введите email<b style={{color: "red"}}>*</b></Form.Label>
+                    </Form.Group>
+                    <Form.Group className="mt-3" controlId="validationCustom02">
+                        <Form.Label>Введите email<b style={{color: "red"}}>*</b></Form.Label>
                         <Form.Control
                             required
                             type="email"
@@ -66,7 +65,9 @@ const CreateRequest = ({show, onHide, good, model}) => {
                         <Form.Control.Feedback type="invalid">
                             Введите email
                         </Form.Control.Feedback>
-                        <Form.Label className="mt-3">Введите контактный телефон<b style={{color: "red"}}>*</b></Form.Label>
+                    </Form.Group>
+                    <Form.Group className="mt-3" controlId="validationCustom03">
+                        <Form.Label>Введите контактный телефон<b style={{color: "red"}}>*</b></Form.Label>
                         <Form.Control
                             required
                             type="tel"
@@ -77,27 +78,35 @@ const CreateRequest = ({show, onHide, good, model}) => {
                         <Form.Control.Feedback type="invalid">
                             Введите контактный телефон
                         </Form.Control.Feedback>
-                        <Form.Label className="mt-3">Добавьте комментарий</Form.Label>
+                    </Form.Group>
+                    <Form.Group className="mt-3" controlId="validationCustom04">
+                        <Form.Label>Добавьте комментарий</Form.Label>
                         <Form.Control
                             value={comment}
                             onChange={e => setComment(e.target.value)}
                             as="textarea"
                             rows={5}
                         />
-                        <Form.Group className="mt-3">
-                            <Form.Check
-                                required
-                                type="checkbox"
-                                label="Нажимая кнопку «Оставить заявку», я даю свое согласие на обработку моих персональных данных, в соответствии с Федеральным законом от 27.07.2006
-                                года №152-ФЗ «О персональных данных», на условиях и для целей, определенных в Согласии на обработку персональных данных"
-                                feedback="Вам необходимо дать согласие на обработку ваших персональных данных"
-                                feedbackType="invalid"
-                            />
-                        </Form.Group>
+                    </Form.Group>
+                    <Form.Group className="mt-3" controlId="validationCustom05">
+                        <Form.Check
+                            required
+                            type="checkbox"
+                            label="Нажимая кнопку «Оставить заявку», я даю свое согласие на обработку моих персональных данных, в соответствии с Федеральным законом от 27.07.2006
+                            года №152-ФЗ «О персональных данных», на условиях и для целей, определенных в Согласии на обработку персональных данных"
+                            feedback="Вам необходимо дать согласие на обработку ваших персональных данных"
+                            feedbackType="invalid"
+                        />
+                    </Form.Group>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="outline-primary" onClick={sendMessage} type="submit">Оставить заявку</Button>
-                    <Button variant="outline-danger" onClick={onHide}>Закрыть</Button>
+                    <Button variant="outline-primary" type="submit">Оставить заявку</Button>
+                    <Button
+                        variant="outline-danger"
+                        onClick={onHide}
+                    >
+                        Закрыть
+                    </Button>
                 </Modal.Footer>
             </Form>
         </Modal>

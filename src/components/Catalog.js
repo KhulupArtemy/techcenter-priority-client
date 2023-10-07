@@ -6,7 +6,7 @@ import Pages from "./Pages";
 
 const Catalog = () => {
     return (
-        <div className="mt-5" id="catalog">
+        <div className="mt-5">
             <h1 className="fw-normal text-center">Каталог</h1>
             <Row>
                 <Col className="mt-5" md={4} lg={3} xl={3} xxl={3}>
