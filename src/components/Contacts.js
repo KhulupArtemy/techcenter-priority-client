@@ -1,112 +1,116 @@
 import React from 'react';
-import {Button, Col, Row} from "react-bootstrap";
-import logo from "../assets/img/logo.png";
+import {Card, Col, Row} from "react-bootstrap";
+import telegram from "../assets/img/icons/telegram.png";
+import whatsapp from "../assets/img/icons/whatsapp.png";
+import viber from "../assets/img/icons/viber.png";
+import background from "../assets/img/parallax/Contacts.jpg";
+import ParallaxTitle from "./ParallaxTitle";
+import Ancor from "./Ancor";
 
 const Contacts = () => {
-
     return (
-        <div>
-            <Row className="mx-0">
-                <Col xs={12} sm={6} md={6} lg={4} xl={6} xxl={6} className="text-center px-0 my-2">
-                    <a
-                        className="text-decoration-none"
-                        href="https://goo.gl/maps/ApCqfNgycADYXjtK8"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        <img
-                            width="32"
-                            height="32"
-                            src="https://img.icons8.com/color/32/place-marker--v1.png"
-                            alt="place-marker--v1"
-                        />
-                        г. Москва, Большая Почтовая ул, д. 18/20 стр. 15, помещ. 10/2 офис 22
-                    </a>
-                </Col>
-                <Col xs={12} sm={6} md={6} lg={3} xl={2} xxl={2} className="text-center px-2 my-2">
-                    <Button
-                        variant="primary"
-                        href="https://new-call.me/gsFEZpwn"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        Позвонить с сайта БЕСПЛАТНО
-                    </Button>
-                </Col>
-                <Col xs={12} sm={6} md={6} lg={3} xl={2} xxl={2} className="text-center px-0 my-2">
-                    <a
-                        className="text-decoration-none"
-                        href="tel:+7 495 545-58-00"
-                    >
-                        <img
-                            width="32"
-                            height="32"
-                            src="https://img.icons8.com/color/32/1DB91D/apple-phone.png"
-                            alt="apple-phone"
-                        />
-                        +7 495 545-58-00
-                    </a>
-                </Col>
-                <Col xs={12} sm={6} md={6} lg={2} xl={2} xxl={2} className="text-center px-0 my-2">
-                    <a
-                        className="p-1"
-                        href="viber://chat?number=%2B375445548455"
-                    >
-                        <img
-                            width="32"
-                            height="32"
-                            src="https://img.icons8.com/fluency/32/viber.png"
-                            alt="viber"
-                        />
-                    </a>
-                    <a
-                        className="p-1"
-                        href="https://wa.me/79255535455"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        <img
-                            width="32"
-                            height="32"
-                            src="https://img.icons8.com/color/32/whatsapp--v1.png"
-                            alt="whatsapp--v1"
-                        />
-                    </a>
-                    <a
-                        className="p-1"
-                        href="https://t.me/HQ_men"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        <img
-                            width="32"
-                            height="32"
-                            src="https://img.icons8.com/color/32/telegram-app--v1.png"
-                            alt="telegram-app--v1"
-                        />
-                    </a>
-                    <a
-                        className="p-1"
-                        href="mailto:info@tc-prioritet.ru"
-                    >
-                        <img
-                            width="36"
-                            height="36"
-                            src="https://img.icons8.com/emoji/36/e-mail.png"
-                            alt="e-mail"
-                        />
-                    </a>
-                </Col>
-            </Row>
-            <Row className="mx-0">
-                <Col xs={12} sm={12} md={12} lg={12} xl={12} xxl={12} className="px-0 my-2">
-                    <img
-                        src={logo}
-                        className="img-fluid"
-                        alt="Логотип"
-                    />
-                </Col>
-            </Row>
+        <div className="my-5">
+            <Ancor id={"contacts"}/>
+            <ParallaxTitle background={background} title={"Контакты"}/>
+            <div className="app__contacts mx-3">
+                <Card>
+                    <Row className="mt-3 d-flex align-items-start">
+                        <Col xs={12} sm={6} md={6} lg={6} xl={3} xxl={3} className="text-center">
+                            <h3>Адрес</h3>
+                            <p>
+                                <a
+                                    className="text-decoration-none"
+                                    href="https://yandex.by/maps/213/moscow/house/bolshaya_pochtovaya_ulitsa_18_20s15/Z04YcA5hSkIPQFtvfXt2dX5gbQ==/?from=mapframe&ll=37.691848%2C55.774744&source=mapframe&utm_source=mapframe&z=18"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    105082, г. Москва, ул. Большая почтовая, дом 18/20, строение 15, помещение 10/2, офис 22
+                                </a>
+                            </p>
+                        </Col>
+                        <Col xs={12} sm={6} md={6} lg={6} xl={3} xxl={3} className="text-center">
+                            <h3>Телефон</h3>
+                            <p>
+                                <a
+                                    className="text-decoration-none"
+                                    href="tel:+7 495 545-58-00"
+                                >
+                                    +7 495 545-58-00
+                                </a>
+                            </p>
+                        </Col>
+                        <Col xs={12} sm={6} md={6} lg={6} xl={3} xxl={3} className="text-center">
+                            <h3>Почта</h3>
+                            <p>
+                                <a
+                                    className="text-decoration-none"
+                                    href="mailto:info@tc-prioritet.ru"
+                                >
+                                    info@tc-prioritet.ru
+                                </a>
+                            </p>
+                        </Col>
+                        <Col xs={12} sm={6} md={6} lg={6} xl={3} xxl={3} className="text-center">
+                            <h3>Мы в мессенджерах</h3>
+                            <p>
+                                <a
+                                    className="text-decoration-none"
+                                    href="https://t.me/HQ_men"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    <img
+                                        className="me-2"
+                                        width="48"
+                                        height="48"
+                                        src={telegram}
+                                        alt="telegram"
+                                    />
+                                </a>
+                                <a
+                                    className="text-decoration-none"
+                                    href="https://wa.me/79255535455"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    <img
+                                        className="mx-2"
+                                        width="48"
+                                        height="48"
+                                        src={whatsapp}
+                                        alt="whatsapp"
+                                    />
+                                </a>
+                                <a
+                                    className="text-decoration-none"
+                                    href="viber://chat?number=%2B375445548455"
+                                >
+                                    <img
+                                        className="mx-2"
+                                        width="48"
+                                        height="48"
+                                        src={viber}
+                                        alt="viber"
+                                    />
+                                </a>
+                            </p>
+                        </Col>
+                    </Row>
+                </Card>
+                <Row className="mt-3">
+                    <Col xs={12} sm={12} md={12} lg={12} xl={12} xxl={12}>
+                        <div>
+                            <iframe
+                                title="Техцентр Приоритет"
+                                src="https://yandex.by/map-widget/v1/?ll=37.691646%2C55.773804&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1NjczMjgyOBJR0KDQvtGB0YHQuNGPLCDQnNC-0YHQutCy0LAsINCR0L7Qu9GM0YjQsNGPINCf0L7Rh9GC0L7QstCw0Y8g0YPQu9C40YbQsCwgMTgvMjDRgTE1IgoN-MMWQhXTGF9C&z=17.06"
+                                style={{pointerEvents: "none"}}
+                                width="100%"
+                                height="500"
+                            />
+                        </div>
+                    </Col>
+                </Row>
+            </div>
         </div>
     );
 };

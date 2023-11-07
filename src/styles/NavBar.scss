@@ -1,0 +1,28 @@
+@import "./variables";
+
+.nav-bar {
+  position: sticky;
+  background-color: white;
+  border-bottom: 1px solid black;
+  top: 0;
+  z-index: 1040;
+
+  img {
+    width: $default-logo-width;
+    height: $default-logo-height;
+  }
+
+  &__links {
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+  }
+
+  @media (max-width: 440px) {
+    img {
+      width: 60vw;
+      height: 12vw;
+      min-width: 168px;
+      min-height: 35px;
+    }
+  }
+}

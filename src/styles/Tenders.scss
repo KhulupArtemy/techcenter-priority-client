@@ -1,0 +1,18 @@
+@import "./variables";
+
+.tenders {
+  .help-button {
+    font-size: $font-size-base;
+    box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+  }
+
+  .help-button:hover {
+    background-color: #3e3e3f;
+    color: white;
+  }
+
+  .help-button.active {
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,189 @@
+@import "./variables";
+
+.app {
+  .ancor{
+    position: relative;
+
+    &__link{
+      position: absolute;
+      display: block;
+      top: -100px;
+    }
+  }
+
+  &__parallax {
+    height: 75vh;
+
+    div {
+      height: 75vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1 {
+      font-family: $font-family-base;
+      font-size: $font-size-title;
+      color: $font-color-title;
+      text-shadow: 3px 0 3px #000, 0 3px 3px #000, -3px 0 3px #000, 0 -3px 3px #000;
+    }
+
+    @media (max-width: 656px) {
+      h1 {
+        font-family: $font-family-base;
+        font-size: 3em;
+        color: $font-color-title;
+        text-shadow: 3px 0 3px #000, 0 3px 3px #000, -3px 0 3px #000, 0 -3px 3px #000;
+      }
+    }
+  }
+
+  &__title {
+    font-family: $font-family-base;
+    color: $font-color-base;
+  }
+
+  &__text {
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    color: $font-color-base;
+    text-align: justify;
+  }
+
+  &__header {
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    text-align: justify;
+
+    a {
+      color: white;
+    }
+  }
+
+  &__contacts {
+    font-family: $font-family-base;
+    font-size: $font-size-base - 2;
+    color: $font-color-base;
+    text-align: justify;
+    text-decoration: none;
+  }
+
+  &__table {
+    font-family: $font-family-base;
+    font-size: $font-size-base - 2;
+    color: $font-color-base;
+    text-align: left;
+  }
+
+  .flare-button {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .flare-button:after {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 250px;
+    margin-left: 50px;
+    background: #fff;
+    background: linear-gradient(
+                    to bottom,
+                    rgba(255, 255, 255, 0.5) 0%,
+                    rgba(255, 255, 255, 1) 50%,
+                    rgba(255, 255, 255, 0.5) 100%
+    );
+    left: -40px;
+    top: -100px;
+    z-index: 1;
+    transform: rotate(45deg);
+    position: absolute;
+    animation: movingFlare 3s ease-in-out 0.05s infinite;
+  }
+
+  @keyframes movingFlare {
+    0% {
+      left: -30px;
+      margin-left: 0px;
+    }
+    30% {
+      left: 110%;
+      margin-left: 80px;
+    }
+    100% {
+      left: 110%;
+      margin-left: 80px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    &__text {
+      font-family: $font-family-base;
+      font-size: $font-size-base;
+      color: $font-color-base;
+      text-align: left;
+    }
+
+    &__header {
+      font-family: $font-family-base;
+      font-size: $font-size-base;
+      text-align: left;
+
+      a {
+        color: white;
+      }
+    }
+
+    &__contacts {
+      font-family: $font-family-base;
+      font-size: $font-size-base;
+      color: $font-color-base;
+      text-align: justify;
+    }
+  }
+
+  @media (max-width: 300px) {
+    &__text {
+      font-family: $font-family-base;
+      font-size: $font-size-base - 2;
+      color: $font-color-base;
+      text-align: left;
+    }
+
+    &__header {
+      font-family: $font-family-base;
+      font-size: $font-size-base - 2;
+      text-align: left;
+
+      a {
+        color: white;
+      }
+    }
+
+    &__table {
+      font-family: $font-family-base;
+      font-size: $font-size-base - 4;
+      color: $font-color-base;
+      text-align: left;
+    }
+  }
+
+  &__site {
+    border-radius: 25% 10%;
+    box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+  }
+
+  &__site:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    cursor: pointer;
+  }
+
+  @media (max-width: 576px) {
+    &__site:hover {
+      transform: scale(1);
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      cursor: pointer;
+    }
+  }
+}
