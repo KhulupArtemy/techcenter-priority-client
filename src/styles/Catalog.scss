@@ -1,9 +1,8 @@
-@import "./variables";
 
 .catalog {
 
   .category {
-    font-size: $font-size-base;
+    font-size: 20px;
     box-shadow: 0 4px 5px rgba(0,0,0,0.2);
     cursor: pointer;
   }
@@ -23,7 +22,7 @@
     height: 320px;
 
     div {
-      font-size: $card-font-size;
+      font-size: 18px;
     }
 
     &__img {
