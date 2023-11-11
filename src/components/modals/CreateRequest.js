@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import {Button, Form, Modal} from "react-bootstrap";
-import Swal from "sweetalert2";
+import {toast} from "react-toastify";
 import {sendEmailLeasing, sendEmailTenders, sendEmailGoods} from "../../http/emailAPI";
-
 
 const CreateRequest = ({show, onHide, good, model, leasing, tenders}) => {
     const [initials, setInitials] = useState('')
@@ -50,38 +49,60 @@ const CreateRequest = ({show, onHide, good, model, leasing, tenders}) => {
             event.preventDefault()
             setValidated(true)
         } else {
-            event.preventDefault()
-            setInitials('')
-            setEmail('')
-            setPhone('')
-            setComment('')
-            setValidated(false)
-            onHide()
+            try {
+                event.preventDefault()
+                setInitials('')
+                setEmail('')
+                setPhone('')
+                setComment('')
+                setValidated(false)
+                onHide()
 
-            if (leasing) {
-                await sendEmailLeasing({initials, email, phone, comment}).then(data => Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: data,
-                    showConfirmButton: false,
-                    timer: 1500
-                }))
-            } else if (tenders) {
-                await sendEmailTenders({initials, email, phone, comment}).then(data => Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: data,
-                    showConfirmButton: false,
-                    timer: 1500
-                }))
-            } else if (good && model) {
-                await sendEmailGoods({initials, email, phone, good, model, comment}).then(data => Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: data,
-                    showConfirmButton: false,
-                    timer: 1500
-                }))
+                if (leasing) {
+                    await sendEmailLeasing({initials, email, phone, comment}).then(data => toast.success(data, {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                    }))
+                } else if (tenders) {
+                    await sendEmailTenders({initials, email, phone, comment}).then(data => toast.success(data, {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                    }))
+                } else if (good && model) {
+                    await sendEmailGoods({initials, email, phone, good, model, comment}).then(data => toast.success(data, {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                    }))
+                }
+            } catch (e) {
+                toast.error('Ошибка', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                })
             }
         }
     };

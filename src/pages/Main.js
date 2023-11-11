@@ -1,6 +1,5 @@
 import React from 'react';
 import Catalog from "../components/Catalog";
-import Footer from "../components/Footer";
 import {Helmet} from "react-helmet";
 import NavBar from "../components/NavBar";
 import AboutUs from "../components/AboutUs";
@@ -50,7 +49,6 @@ const Main = () => {
             <Clients/>
             <Vacancies/>
             <Contacts/>
-            <Footer/>
         </div>
     );
 };

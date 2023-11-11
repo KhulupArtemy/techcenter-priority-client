@@ -3,7 +3,6 @@ import {Button, Col, Container, Row, Table} from "react-bootstrap";
 import {Context} from "../index";
 import {useNavigate, useParams} from "react-router-dom";
 import CreateRequest from "../components/modals/CreateRequest";
-import Footer from "../components/Footer";
 import {Helmet} from "react-helmet";
 import PhoneButton from "../components/PhoneButton";
 
@@ -84,7 +83,6 @@ const GoodPage = () => {
                         </tbody>
                     </Table>
                 </div>
-                <Footer/>
                 <CreateRequest
                     show={createRequestVisible}
                     onHide={() => setCreateRequestVisible(false)}
