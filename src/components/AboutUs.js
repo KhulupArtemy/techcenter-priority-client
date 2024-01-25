@@ -8,6 +8,13 @@ const AboutUs = () => {
     return (
         <div className="mb-5">
             <Ancor id={"about"}/>
+            <link
+                rel="preload"
+                fetchpriority="high"
+                as="image"
+                href={background}
+                type="image/webp"
+            />
             <ParallaxTitle background={background} title={"О нас"}/>
             <Container className="app__text">
                 <p>
